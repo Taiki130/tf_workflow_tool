@@ -1,0 +1,1 @@
+lockファイルから使用しているツールがterraformかopentofuか判断して返す
