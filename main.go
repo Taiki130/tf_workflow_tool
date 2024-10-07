@@ -17,7 +17,7 @@ type provider struct {
 type config struct {
 	RegistryURL string   `hcl:"registryURL,label"`
 	Version     string   `hcl:"version"`
-	Constraints string   `hcl:"constraints"`
+	Constraints string   `hcl:"constraints,optional"`
 	Hashes      []string `hcl:"hashes"`
 }
 
@@ -48,5 +48,4 @@ func main() {
 	} else {
 		log.Fatal("Failed to determine tool")
 	}
-
 }
