@@ -1,4 +1,4 @@
-module github.com/Taiki130/tf_workloaw_tool
+module github.com/Taiki130/tf
 
 go 1.22.1
 
