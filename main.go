@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"net/url"
 	"os"
 	"strings"
 
@@ -18,7 +17,7 @@ type provider struct {
 type config struct {
 	RegistryURL string   `hcl:"registryURL,label"`
 	Version     string   `hcl:"version"`
-	Constraints string   `hcl:"constraints"`
+	Constraints string   `hcl:"constraints,optional"`
 	Hashes      []string `hcl:"hashes"`
 }
 
@@ -42,14 +41,11 @@ func main() {
 	}
 
 	registryURL := provider.Provider[0].RegistryURL
-	u, err := url.Parse(registryURL)
-	if err != nil {
-		log.Fatal(err)
-	}
-	if strings.Contains(u.Host, "terraform") {
+	if strings.Contains(registryURL, "terraform") {
 		fmt.Print("terraform")
-	} else {
+	} else if strings.Contains(registryURL, "tofu") {
 		fmt.Print("tofu")
+	} else {
+		log.Fatal("Failed to determine tool")
 	}
-
 }
