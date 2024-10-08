@@ -6,6 +6,6 @@ lockファイルから使用しているツールがterraformかopentofuか判�
 % go install github.com/Taiki130/tf_workflow_tool
 % alias tf=tf_workflow_tool
 
-# move terraform dir
+# Move to the Terraform (or OpenTofu) directory
 % tf plan
 ```
